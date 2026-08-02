@@ -48,7 +48,7 @@ md.append("")
 md.append("## 2. Model Registry — Aliases\n")
 md.append("| Alias | Points to |")
 md.append("| --- | --- |")
-for alias in ["champion", "challenger", "previous-champion"]:
+for alias in ["champion", "challenger", "previous-champion", "rolled-back"]:
     try:
         mv = client.get_model_version_by_alias(MODEL_NAME, alias)
         md.append(f"| `@{alias}` | {MODEL_NAME} v{mv.version} |")

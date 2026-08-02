@@ -1,2 +1,9 @@
 [2026-08-02 15:15:19 UTC] EVALUATING | BankChurnModel v1 | by=MRT
 [2026-08-02 15:15:19 UTC] PROMOTED | v1 -> @champion | ROC-AUC=0.8579 gap=0.0084 | by=MRT
+[2026-08-02 17:34:37 UTC] EVALUATING | BankChurnModel v1 | by=MRT
+[2026-08-02 17:34:37 UTC] PROMOTED | v1 -> @champion | ROC-AUC=0.8579 gap=0.0084 | by=MRT
+[2026-08-02 17:39:08 UTC] EVALUATING | BankChurnModel v2 | by=MRT
+[2026-08-02 17:39:09 UTC] ROLLBACK-POINT | v1 -> @previous-champion
+[2026-08-02 17:39:09 UTC] PROMOTED | v2 -> @champion | ROC-AUC=0.8579 gap=0.0084 | by=MRT
+[2026-08-02 17:39:54 UTC] ROLLBACK-START | champion v2 -> previous v1 | by=MRT
+[2026-08-02 17:39:54 UTC] ROLLED-BACK | @champion restored to v1 | v2 tagged @rolled-back | by=MRT

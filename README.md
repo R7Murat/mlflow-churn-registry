@@ -166,6 +166,24 @@ mlflow-churn-registry/
 └── .env.example                      # config template
 ```
 
+## Rollback
+
+If a promoted champion misbehaves in production (a problem the gate could
+not catch — data drift, an edge case), roll back to the last known-good
+version with a single command:
+
+```bash
+python scripts/rollback.py
+```
+
+This restores `@previous-champion` to `@champion`, tags the bad version
+as `@rolled-back` (kept for audit, not deleted), and logs the event.
+Serving picks up the restored champion on its next request — no code change.
+
+Rollback is a **corrective** control; the promotion gate is **preventive**.
+Together they cover both "keep the bad model out" and "get the bad model
+out if it slips through".
+
 ## Design decisions
 
 Real engineering choices made during this project — the "why", not just the "what".
