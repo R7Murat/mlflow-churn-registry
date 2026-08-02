@@ -1,0 +1,15 @@
+=== FAZ 1 KANIT — Sat, Aug  1, 2026 10:18:04 PM ===
+
+--- Container durumu ---
+NAME                     IMAGE                                   COMMAND                  SERVICE           CREATED          STATUS                     PORTS
+mlflow-model-serving     mlflow-churn-registry-serving           "mlflow models serve…"   serving           7 minutes ago    Up 7 minutes (unhealthy)   0.0.0.0:5001->5001/tcp, [::]:5001->5001/tcp
+mlflow-tracking-server   mlflow-churn-registry-tracking-server   "mlflow server --bac…"   tracking-server   11 minutes ago   Up 11 minutes (healthy)    0.0.0.0:5000->5000/tcp, [::]:5000->5000/tcp
+
+--- Experiment artifact_location (proxy şeması) ---
+mlflow-artifacts:/1
+
+--- Registry alias ---
+BankChurnModel@champion -> version 1
+
+--- Serving prediction (raw input) ---
+{"predictions": [{"churn_probability": 0.2603, "churn_prediction": 0, "risk_tier": "Low"}]}

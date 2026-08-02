@@ -1,0 +1,46 @@
+services:
+  tracking-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mlflow-tracking-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlflow-data:/mlflow-data
+      - ./mlflow-artifacts:/mlflow-artifacts
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  serving:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mlflow-model-serving
+    profiles: ["serve"]
+    depends_on:
+      tracking-server:
+        condition: service_healthy
+    environment:
+      - MLFLOW_TRACKING_URI=http://tracking-server:5000
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./mlflow-artifacts:/mlflow-artifacts
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5001/ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    command: >
+      mlflow models serve
+      -m models:/BankChurnModel@champion
+      --host 0.0.0.0
+      --port 5001
+      --no-conda

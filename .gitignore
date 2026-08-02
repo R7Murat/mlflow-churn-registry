@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Veri — Kaggle'dan indirilecek, repoya gömülmez
+data/raw/*.csv
+
+# MLflow — runtime state, repoya gömülmez (sadece .gitkeep kalır)
+mlflow-data/*
+!mlflow-data/.gitkeep
+mlflow-artifacts/*
+!mlflow-artifacts/.gitkeep
+
+# Ortam değişkenleri
+.env
+
+# OS
+.DS_Store
+Thumbs.db
