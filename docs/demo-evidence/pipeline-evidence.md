@@ -1,13 +1,13 @@
 # MLflow Churn Registry — Pipeline Evidence
 
-_Generated: 2026-08-02 17:45 UTC_
+_Generated: 2026-08-02 20:15 UTC_
 
 ## 1. Container Status
 
 | Name | Service | Status |
 | --- | --- | --- |
-| `mlflow-model-serving` | serving | Up 37 seconds (healthy) |
-| `mlflow-tracking-server` | tracking-server | Up 16 minutes (healthy) |
+| `mlflow-model-serving` | serving | Up 3 hours (healthy) |
+| `mlflow-tracking-server` | tracking-server | Up 3 hours (healthy) |
 
 ## 2. Model Registry — Aliases
 
@@ -32,8 +32,6 @@ _Generated: 2026-08-02 17:45 UTC_
 ## 4. Promotion Audit Trail
 
 ```
-[2026-08-02 15:15:19 UTC] EVALUATING | BankChurnModel v1 | by=MRT
-[2026-08-02 15:15:19 UTC] PROMOTED | v1 -> @champion | ROC-AUC=0.8579 gap=0.0084 | by=MRT
 [2026-08-02 17:34:37 UTC] EVALUATING | BankChurnModel v1 | by=MRT
 [2026-08-02 17:34:37 UTC] PROMOTED | v1 -> @champion | ROC-AUC=0.8579 gap=0.0084 | by=MRT
 [2026-08-02 17:39:08 UTC] EVALUATING | BankChurnModel v2 | by=MRT
